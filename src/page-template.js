@@ -1,58 +1,51 @@
-// create the about section
-const generateAbout = aboutText => {
-  if (!aboutText) {
+//function that returns table of contents if there is one
+
+const generateToc = tocText => {
+  if (!tocText) {
     return '';
   }
 
   return `
     <section class="my-3" id="about">
-      <h2 class="text-dark bg-primary p-2 display-inline-block">About Me</h2>
-      <p>${aboutText}</p>
+      <h2 class="text-dark bg-primary p-2 display-inline-block">Table of Contents</h2>
+      ${toc.map(toc => toc).join(',')}
     </section>
   `;
 };
 
-// create the projects section
-const generateProjects = projectsArr => {
+//function that returns badges if there are any
+const generateBadges = badgesText => {
+  if (!badgesText) {
+    return '';
+  }
+
+  return `
+    <section class="my-3" id="about">
+      <h2 class="text-dark bg-primary p-2 display-inline-block">Badges</h2>
+      <p>${badgesText}</p>
+    </section>
+  `;
+};
+
+
+const generatePage = pageArr => {
   return `
     <section class="my-3" id="portfolio">
-      <h2 class="text-dark bg-primary p-2 display-inline-block">Work</h2>
+      <h1 class="text-dark bg-primary p-2 display-inline-block">README</h1>
       <div class="flex-row justify-space-between">
-      ${projectsArr
+      ${pageArr
         .filter(({ feature }) => feature)
-        .map(({ name, description, languages, link }) => {
+        .map(({ installation, usage, credits, license }) => {
           return `
           <div class="col-12 mb-2 bg-dark text-light p-3">
-            <h3 class="portfolio-item-title text-light">${name}</h3>
-            <h5 class="portfolio-languages">
-              Built With:
-              ${languages.map(language => language).join(',')}
-            </h5>
-            <p>${description}</p>
-            <a href="${link}" class="btn"><i class="fab fa-github mr-2"></i>View Project on GitHub</a>
+            <h2 class="portfolio-item-title text-light">${installation}</h2>
+            <h2 class="portfolio-item-title text-light">${usage}</h2>
+            <h2 class="portfolio-item-title text-light">${credits}</h2>
+            <h2 class="portfolio-item-title text-light">${license}</h2>
           </div>
         `;
         })
-        .join('')}
-
-      ${projectsArr
-        .filter(({ feature }) => !feature)
-        .map(({ name, description, languages, link }) => {
-          console.log(languages);
-          return `
-          <div class="col-12 col-md-6 mb-2 bg-dark text-light p-3 flex-column">
-            <h3 class="portfolio-item-title text-light">${name}</h3>
-            <h5 class="portfolio-languages">
-              Built With:
-              ${languages.join(', ')}
-            </h5>
-            <p>${description}</p>
-            <a href="${link}" class="btn mt-auto"><i class="fab fa-github mr-2"></i>View Project on GitHub</a>
-          </div>
-        `;
-        })
-        .join('')}
-    
+        .join('')} 
       </div>
     </section>
   `;

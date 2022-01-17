@@ -6,16 +6,16 @@ const promptUser = () => {
   return inquirer.prompt([
     {
       type: 'confirm',
-      name: 'confirmTableOfC',
+      name: 'confirmToc',
       message: 'Would you like to enter a table of contents?',
       default: true
     },
     {
       type: 'checkbox',
-      name: 'tableOfC',
+      name: 'toc',
       message: 'What sections are in your README? (Check all that apply)',
       choices: ['Installation', 'Usage', 'Credits', 'Badges', 'Licence'],
-      when: ({confirmTableOfC}) => confirmTableOfC
+      when: ({confirmToc}) => confirmToc
     },
     {
       type: 'input',
