@@ -5,6 +5,32 @@ const { writeFile, copyFile } = require('./utils/generateMarkdown.js');
 const promptUser = () => {
   return inquirer.prompt([
     {
+      type: 'input',
+      name: 'title',
+      message: 'What is the title of your project? (Required)',
+      validate: titleInput => {
+        if (titleInput) {
+          return true;
+        } else {
+          console.log('Please enter a title!');
+          return false;
+        }
+      }
+    },
+    {
+      type: 'input',
+      name: 'description',
+      message: 'Please provide a description of your project? (Required)',
+      validate: titleInput => {
+        if (titleInput) {
+          return true;
+        } else {
+          console.log('Please provide a description!');
+          return false;
+        }
+      }
+    },
+    {
       type: 'confirm',
       name: 'confirmToc',
       message: 'Would you like to enter a table of contents?',
@@ -14,7 +40,7 @@ const promptUser = () => {
       type: 'checkbox',
       name: 'toc',
       message: 'What sections are in your README? (Check all that apply)',
-      choices: ['Installation', 'Usage', 'Credits', 'Badges', 'Licence'],
+      choices: ['Description', 'Installation', 'Usage', 'Badges', 'Licence', 'Credits', 'Tests', "Questions"],
       when: ({confirmToc}) => confirmToc
     },
     {
@@ -64,7 +90,7 @@ const promptUser = () => {
     },
     {
       type: 'input',
-      name: 'Badges',
+      name: 'badges',
       message: 'Please list your badges? (Required)',
       when: ({confirmBadges}) => confirmBadges
     },
@@ -80,6 +106,30 @@ const promptUser = () => {
         return false;
         }
       }
+    },
+    {
+      type: 'confirm',
+      name: 'confirmTests',
+      message: 'Would you like to list instructions on how to test the App?',
+      default: true
+    },
+    {
+      type: 'input',
+      name: 'tests',
+      message: 'Describe instructions on how to test the App? (Required)',
+      when: ({confirmTests}) => confirmTests
+    },
+    {
+      type: 'confirm',
+      name: 'confirmQuestions',
+      message: 'Would you like to list unresolved questions?',
+      default: true
+    },
+    {
+      type: 'input',
+      name: 'questions',
+      message: 'List any unresolved questions? (Required)',
+      when: ({confirmQuestions}) => confirmQuestions
     },
   ]);
 };
