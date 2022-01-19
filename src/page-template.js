@@ -1,17 +1,51 @@
 //function that returns table of contents if there is one
+// const generateToc = toc => {
+//   if (!toc) {
+//     return '';
+//   } else {
+//       toc.map(toc => toc).join(',')
+//       for (let i = 0; i < 9; i++) {
+//         if (toc[i]) {
+//           return `
+//             <section class="my-3">
+//               <h2 class="text-dark bg-primary p-2 display-inline-block">Table of Contents</h2>
+//               <ul class="content-items" href="#${toc[i]}">${toc[i]}</ul>
+//             </section>
+//           `;
+//         }
+//         else {
+//           return '';
+//         }
+//       }
+//     
+// };
+
+//function that returns table of contents if there is one
+//code adapted from https://www.w3schools.com/js/js_arrays.asp
+
 const generateToc = toc => {
   if (!toc) {
+
     return '';
+
+  } else {
+      toc.map(toc => toc).join(',');
+      let toclength = toc.length;
+      let text = "<ul>";
+      for (let i = 0; i < toclength; i++) {
+        text += "<li href=#${toc[i]}>" + toc[i] + "</li>"
+      }
+      text += "</ul>"
+
+      return `
+        <section class="my-3">
+          <h2 class="text-dark bg-primary p-2 display-inline-block">Table of Contents</h2>
+          ${text}
+        </section>
+      `;
   }
-
-  return `
-    <section class="my-3" id="about">
-      <h2 class="text-dark bg-primary p-2 display-inline-block">Table of Contents</h2>
-      <ul>${toc.map(toc => toc).join(',')}</ul>
-    </section>
-  `;
-};
-
+}
+        
 //function that returns badges if there are any
 const generateBadges = badges => {
   if (!badges) {
@@ -19,8 +53,8 @@ const generateBadges = badges => {
   }
 
   return `
-    <section class="my-3" id="about">
-      <h2 class="text-dark bg-primary p-2 display-inline-block">Badges</h2>
+    <section class="my-3">
+      <h2 class="text-dark bg-primary p-2 display-inline-block" id="Badges">Badges</h2>
       <p>${badges}</p>
     </section>
   `;
@@ -33,8 +67,8 @@ const generateTests = tests => {
   }
 
   return `
-    <section class="my-3" id="about">
-      <h2 class="text-dark bg-primary p-2 display-inline-block">Tests</h2>
+    <section class="my-3">
+      <h2 class="text-dark bg-primary p-2 display-inline-block" id="Tests">Tests</h2>
       <p>${tests}</p>
     </section>
   `;
@@ -47,32 +81,9 @@ const generateQuestions = questions => {
   }
 
   return `
-    <section class="my-3" id="about">
-      <h2 class="text-dark bg-primary p-2 display-inline-block">Questions</h2>
+    <section class="my-3">
+      <h2 class="text-dark bg-primary p-2 display-inline-block" id="Questions">Questions</h2>
       <p>${questions}</p>
-    </section>
-  `;
-};
-
-const generatePage = pageArr => {
-  return `
-    <section class="my-3" id="portfolio">
-      <h1 class="text-dark bg-primary p-2 display-inline-block">README</h1>
-      <div class="flex-row justify-space-between">
-      ${pageArr
-        .map(({ description, installation, usage, license, credits, questions, }) => {
-          return `
-          <div class="col-12 mb-2 bg-dark text-light p-3">
-            <h2 class="portfolio-item-title text-light">${description}</h2>
-            <h2 class="portfolio-item-title text-light">${installation}</h2>
-            <h2 class="portfolio-item-title text-light">${usage}</h2>
-            <h2 class="portfolio-item-title text-light">${license}</h2>
-            <h2 class="portfolio-item-title text-light">${credits}</h2>
-          </div>
-        `;
-        })
-        .join('')} 
-      </div>
     </section>
   `;
 };
@@ -103,17 +114,17 @@ module.exports = templateData => {
       </div>
     </header>
     <main class="container my-5">
-      ${generateToc(toc)}
-      <h2 class="text-dark bg-primary p-2 display-inline-block">Description</h2>
+      ${generateToc(toc)}     
+      <h2 class="text-dark bg-primary p-2 display-inline-block" id="Description">Description</h2>
         <p>${description}</p>
-      <h2 class="text-dark bg-primary p-2 display-inline-block">Installation</h2>
+      <h2 class="text-dark bg-primary p-2 display-inline-block" id="Installation">Installation</h2>
         <p>${installation}</p>
-      <h2 class="text-dark bg-primary p-2 display-inline-block">Usage</h2>
+      <h2 class="text-dark bg-primary p-2 display-inline-block" id="Usage">Usage</h2>
         <p>${usage}</p>
       ${generateBadges(badges)}
-      <h2 class="text-dark bg-primary p-2 display-inline-block" >License</h2>
+      <h2 class="text-dark bg-primary p-2 display-inline-block" id="License">License</h2>
         <p>${license}</p>
-      <h2 class="text-dark bg-primary p-2 display-inline-block">Credits</h2>
+      <h2 class="text-dark bg-primary p-2 display-inline-block" id="Credits">Credits</h2>
         <p>${credits}</p>
       ${generateTests(tests)}
       ${generateQuestions(questions)}

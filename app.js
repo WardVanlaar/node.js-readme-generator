@@ -122,7 +122,7 @@ const promptUser = () => {
     {
       type: 'confirm',
       name: 'confirmQuestions',
-      message: 'Would you like to list unresolved questions?',
+      message: 'Do you have any questions?',
       default: true
     },
     {
