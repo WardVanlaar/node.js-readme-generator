@@ -1,32 +1,30 @@
 
-# fanpage
-[![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)
+# test
+[![License: LGPL v3](https://img.shields.io/badge/License-LGPL_v3-blue.svg)](https://www.gnu.org/licenses/lgpl-3.0)
 ## Table of Contents
 * [Description](#Description)
-* [Usage](#Usage)
+* [Installation](#Installation)
 * [License](#License)
-* [Credits](#Credits)
-* [Questions](#Questions)
 
 
 ## Description
-This was my first website when I did the pre-work to Coding Bootcamp.
+test
 
 ## Installation
-N/A
+nnn
 
 ## Usage
-Just take a peek at my favorite band and don't mind the minimalistic approach...this was my first website after all.
+nnn
 
 ## License
-This App is covered under the following license: The Unlicense
+This App is covered under the following license: GNU LGPLv3
 
 ## Credits
-Just me!
+nnn
 
 ## Tests
-N/A
+aa
 
 ## Questions
-For questions, contact me via email (wgvanlaar@gmail.com) or find me on GitHub (https://github.com/WardVanlaar)
+For questions, contact me via email (aa) or find me on GitHub (https://github.com/aa)
   
