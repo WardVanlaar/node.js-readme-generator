@@ -95,17 +95,17 @@ const promptUser = () => {
       when: ({confirmBadges}) => confirmBadges
     },
     {
-      type: 'input',
+      type: 'confirm',
+      name: 'confirmLicense',
+      message: 'Would you like to add a license?',
+      default: true
+    },
+    {
+      type: 'list',
       name: 'license',
-      message: 'List license? (Required)',
-      validate: licenseInput => {
-        if (licenseInput) {
-        return true;
-        } else {
-        console.log('Please describe the license!');
-        return false;
-        }
-      }
+      message: 'Please select a license (Required)',
+      choices: ['GNU AGPLv3', 'GNU GPLv3', 'GNU LGPLv3', 'Mozilla Public License 2.0', 'Apache License 2.0', 'MIT', 'Boost Software License 1.0', 'The Unlicense'],
+      when: ({confirmLicense}) => confirmLicense
     },
     {
       type: 'confirm',

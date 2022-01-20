@@ -38,6 +38,20 @@ const generateBadges = badges => {
   `;
 };
 
+//function that returns a license if one was selected
+const generateLicense = license => {
+  if (!license) {
+    return '';
+  }
+
+  return `
+    <section class="my-3">
+      <h2 class="text-dark bg-primary p-2 display-inline-block" id="Badges">License</h2>
+      <p>This App is covered under the following license: ${license}</p>
+    </section>
+  `;
+};
+
 //function that returns test instructions if there are any
 const generateTests = tests => {
   if (!tests) {
@@ -100,8 +114,7 @@ module.exports = templateData => {
       <h2 class="text-dark bg-primary p-2 display-inline-block" id="Usage">Usage</h2>
         <p>${usage}</p>
       ${generateBadges(badges)}
-      <h2 class="text-dark bg-primary p-2 display-inline-block" id="License">License</h2>
-        <p>${license}</p>
+      ${generateLicense(license)}
       <h2 class="text-dark bg-primary p-2 display-inline-block" id="Credits">Credits</h2>
         <p>${credits}</p>
       ${generateTests(tests)}
