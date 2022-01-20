@@ -20,7 +20,7 @@ const promptUser = () => {
     {
       type: 'input',
       name: 'description',
-      message: 'Please provide a description of your project? (Required)',
+      message: 'Describe your project? (Required)',
       validate: titleInput => {
         if (titleInput) {
           return true;
@@ -39,19 +39,19 @@ const promptUser = () => {
     {
       type: 'checkbox',
       name: 'toc',
-      message: 'What sections are in your README? (Check all that apply)',
+      message: 'What sections do you want to include? (Check all that apply)',
       choices: ['Description', 'Installation', 'Usage', 'Badges', 'Licence', 'Credits', 'Tests', "Questions"],
       when: ({confirmToc}) => confirmToc
     },
     {
       type: 'input',
       name: 'installation',
-      message: 'How to install? (Required)',
+      message: 'How do you install the App? (Required)',
       validate: installationInput => {
         if (installationInput) {
           return true;
         } else {
-          console.log('Please describe installation process!');
+          console.log('Please describe the installation process!');
           return false;
         }
       }
@@ -59,12 +59,12 @@ const promptUser = () => {
     {
       type: 'input',
       name: 'usage',
-      message: 'How to use? (Required)',
+      message: 'How can the App be used? (Required)',
       validate: usageInput => {
         if (usageInput) {
           return true;
         } else {
-          console.log('Please describe how to use it!');
+          console.log('Please describe how to use the App!');
           return false;
         }
       }
@@ -72,7 +72,7 @@ const promptUser = () => {
     {
       type: 'input',
       name: 'credits',
-      message: 'Who contributed? (Required)',
+      message: 'Who contributed to the project? (Required)',
       validate: creditsInput => {
         if (creditsInput) {
         return true;
@@ -96,16 +96,17 @@ const promptUser = () => {
       when: ({confirmLicense}) => confirmLicense
     },
     {
-      type: 'confirm',
-      name: 'confirmTests',
-      message: 'Would you like to list instructions on how to test the App?',
-      default: true
-    },
-    {
       type: 'input',
       name: 'tests',
       message: 'Describe instructions on how to test the App? (Required)',
-      when: ({confirmTests}) => confirmTests
+      validate: testsInput => {
+        if (testsInput) {
+        return true;
+        } else {
+        console.log('Please describe how to test the App');
+        return false;
+        }
+      }
     },
     {
       type: 'input',

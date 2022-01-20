@@ -11,7 +11,7 @@ const generateToc = toc => {
       let toclength = toc.length;
       let text = ''
       for (let i = 0; i < toclength; i++) {
-      text += `* ${toc[i]}`
+      text += `[* ${toc[i]}](#${toc[i]})`
       }
 
       return `
@@ -32,7 +32,7 @@ const generateLicense = license => {
 };
 
 //function that returns a license badge if license was selected
-//links to shields obtained from https://gist.github.com/lukas-h/2a5d00690736b4c3a7ba
+//links to badges obtained from https://gist.github.com/lukas-h/2a5d00690736b4c3a7ba
 const generateLicenseBadge = license => {
   if (!license) {
 
@@ -100,6 +100,6 @@ module.exports = templateData => {
   ${generateTests(tests)}
 
   ## Questions
-  For questions, contact me via email (${email}) or GitHub (https://github.com/${github})
+  For questions, contact me via email (${email}) or find me on GitHub (https://github.com/${github})
   `
 }
