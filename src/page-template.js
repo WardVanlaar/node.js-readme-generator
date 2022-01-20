@@ -23,20 +23,6 @@ const generateToc = toc => {
       `;
   }
 }
-        
-//function that returns badges if there are any
-const generateBadges = badges => {
-  if (!badges) {
-    return '';
-  }
-
-  return `
-    <section class="my-3">
-      <h2 class="text-dark bg-primary p-2 display-inline-block" id="Badges">Badges</h2>
-      <p>${badges}</p>
-    </section>
-  `;
-};
 
 //function that returns a license if one was selected
 const generateLicense = license => {
@@ -51,6 +37,43 @@ const generateLicense = license => {
     </section>
   `;
 };
+
+//function that returns a license badge if license was selected
+//links to shields obtained from https://gist.github.com/lukas-h/2a5d00690736b4c3a7ba
+const generateLicenseBadge = license => {
+  if (!license) {
+
+    return '';
+
+  } else if (license === 'GNU AGPLv3') {
+    badge = '[![License: AGPL v3](https://img.shields.io/badge/License-AGPL_v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)'
+    return `${badge}`;
+  
+  } else if (license === 'GNU GPLv3') {
+    badge = '[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)'
+    return `${badge}`;
+  
+  } else if (license === 'GNU LGPLv3') {
+    badge = '[![License: LGPL v3](https://img.shields.io/badge/License-LGPL_v3-blue.svg)](https://www.gnu.org/licenses/lgpl-3.0)'
+    return `${badge}`;
+
+  } else if (license === 'Mozilla Public License 2.0') {
+    badge = '[![License: MPL 2.0](https://img.shields.io/badge/License-MPL_2.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)'
+    return `${badge}`;
+
+  } else if (license === 'Apache License 2.0') {
+    bagde = '[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)'
+    return `${badge}`;
+
+  } else if (license === 'MIT') {
+    badge = `[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)`
+    return `${badge}`;
+
+  } else if (license === 'The Unlicense') {
+    badge = '[![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)'
+    return `${badge}`;
+  }
+}
 
 //function that returns test instructions if there are any
 const generateTests = tests => {
@@ -83,7 +106,7 @@ const generateQuestions = questions => {
 // export function to generate entire page
 module.exports = templateData => {
   // destructure page data by section
-  const { title, toc, description, installation, usage, badges, license, credits, tests, questions } = templateData;
+  const { title, toc, description, installation, usage, license, badge, credits, tests, questions } = templateData;
 
   return `
   <!DOCTYPE html>
@@ -104,6 +127,7 @@ module.exports = templateData => {
       <div class="container flex-row justify-space-between align-center py-3">
         <h1 class="page-title text-secondary bg-dark py-2 px-3">${title}</h1>
       </div>
+      <div>${badge}</div>
     </header>
     <main class="container my-5">
       ${generateToc(toc)}     
@@ -113,7 +137,6 @@ module.exports = templateData => {
         <p>${installation}</p>
       <h2 class="text-dark bg-primary p-2 display-inline-block" id="Usage">Usage</h2>
         <p>${usage}</p>
-      ${generateBadges(badges)}
       ${generateLicense(license)}
       <h2 class="text-dark bg-primary p-2 display-inline-block" id="Credits">Credits</h2>
         <p>${credits}</p>

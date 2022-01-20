@@ -84,18 +84,6 @@ const promptUser = () => {
     },
     {
       type: 'confirm',
-      name: 'confirmBadges',
-      message: 'Would you like to enter badges?',
-      default: true
-    },
-    {
-      type: 'input',
-      name: 'badges',
-      message: 'Please list your badges? (Required)',
-      when: ({confirmBadges}) => confirmBadges
-    },
-    {
-      type: 'confirm',
       name: 'confirmLicense',
       message: 'Would you like to add a license?',
       default: true
@@ -104,7 +92,7 @@ const promptUser = () => {
       type: 'list',
       name: 'license',
       message: 'Please select a license (Required)',
-      choices: ['GNU AGPLv3', 'GNU GPLv3', 'GNU LGPLv3', 'Mozilla Public License 2.0', 'Apache License 2.0', 'MIT', 'Boost Software License 1.0', 'The Unlicense'],
+      choices: ['GNU AGPLv3', 'GNU GPLv3', 'GNU LGPLv3', 'Mozilla Public License 2.0', 'Apache License 2.0', 'MIT', 'The Unlicense'],
       when: ({confirmLicense}) => confirmLicense
     },
     {
