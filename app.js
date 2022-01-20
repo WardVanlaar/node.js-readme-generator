@@ -40,7 +40,7 @@ const promptUser = () => {
       type: 'checkbox',
       name: 'toc',
       message: 'What sections do you want to include? (Check all that apply)',
-      choices: ['Description', 'Installation', 'Usage', 'Licence', 'Credits', 'Tests', "Questions"],
+      choices: ['Description', 'Installation', 'Usage', 'License', 'Credits', 'Tests', "Questions"],
       when: ({confirmToc}) => confirmToc
     },
     {
