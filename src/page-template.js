@@ -105,5 +105,5 @@ module.exports = templateData => {
 
   ## Questions
   For questions, contact me via email (${email}) or GitHub (https://github.com/${github})
-  
   `
+}
