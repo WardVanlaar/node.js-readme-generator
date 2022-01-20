@@ -89,24 +89,10 @@ const generateTests = tests => {
   `;
 };
 
-//function that returns unresolved questions if there are any
-const generateQuestions = questions => {
-  if (!questions) {
-    return '';
-  }
-
-  return `
-    <section class="my-3">
-      <h2 class="text-dark bg-primary p-2 display-inline-block" id="Questions">Questions</h2>
-      <p>${questions}</p>
-    </section>
-  `;
-};
-
 // export function to generate entire page
 module.exports = templateData => {
   // destructure page data by section
-  const { title, toc, description, installation, usage, license, badge, credits, tests, questions } = templateData;
+  const { title, toc, description, installation, usage, license, badge, credits, tests, github, email } = templateData;
 
   return `
   <!DOCTYPE html>
@@ -141,7 +127,12 @@ module.exports = templateData => {
       <h2 class="text-dark bg-primary p-2 display-inline-block" id="Credits">Credits</h2>
         <p>${credits}</p>
       ${generateTests(tests)}
-      ${generateQuestions(questions)}
+      <h2 class="text-dark bg-primary p-2 display-inline-block" id="Credits">Questions</h2>
+        <p>If you have any questions, you can contact me:</p>
+        <ul>
+          <li> by email: ${email}</li> 
+          <li> via <a href="https://github.com/${github}">GitHub</a> </li>
+        </ul>
     </main>
   </body>
   </html>

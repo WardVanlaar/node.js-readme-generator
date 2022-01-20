@@ -108,16 +108,30 @@ const promptUser = () => {
       when: ({confirmTests}) => confirmTests
     },
     {
-      type: 'confirm',
-      name: 'confirmQuestions',
-      message: 'Do you have any questions?',
-      default: true
+      type: 'input',
+      name: 'github',
+      message: 'Please enter your GitHub username. (Required)',
+      validate: githubInput => {
+        if (githubInput) {
+        return true;
+        } else {
+        console.log('You must enter your GitHub username!');
+        return false;
+        }
+      }
     },
     {
       type: 'input',
-      name: 'questions',
-      message: 'List any unresolved questions? (Required)',
-      when: ({confirmQuestions}) => confirmQuestions
+      name: 'email',
+      message: 'Please enter your email. (Required)',
+      validate: emailInput => {
+        if (emailInput) {
+        return true;
+        } else {
+        console.log('You must enter your email!');
+        return false;
+        }
+      }
     },
   ]);
 };
