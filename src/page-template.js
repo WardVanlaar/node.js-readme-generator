@@ -1,26 +1,4 @@
 //function that returns table of contents if there is one
-// const generateToc = toc => {
-//   if (!toc) {
-//     return '';
-//   } else {
-//       toc.map(toc => toc).join(',')
-//       for (let i = 0; i < 9; i++) {
-//         if (toc[i]) {
-//           return `
-//             <section class="my-3">
-//               <h2 class="text-dark bg-primary p-2 display-inline-block">Table of Contents</h2>
-//               <ul class="content-items" href="#${toc[i]}">${toc[i]}</ul>
-//             </section>
-//           `;
-//         }
-//         else {
-//           return '';
-//         }
-//       }
-//     
-// };
-
-//function that returns table of contents if there is one
 //code adapted from https://www.w3schools.com/js/js_arrays.asp
 
 const generateToc = toc => {
@@ -33,7 +11,7 @@ const generateToc = toc => {
       let toclength = toc.length;
       let text = "<ul>";
       for (let i = 0; i < toclength; i++) {
-        text += "<li href=#${toc[i]}>" + toc[i] + "</li>"
+        text += `<li> <a href="#${toc[i]}">  ${toc[i]} </a></li>`
       }
       text += "</ul>"
 
