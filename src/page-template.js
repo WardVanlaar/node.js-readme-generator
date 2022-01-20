@@ -9,18 +9,14 @@ const generateToc = toc => {
   } else {
       toc.map(toc => toc).join(',');
       let toclength = toc.length;
-      let text = "<ul>";
+      let text = ''
       for (let i = 0; i < toclength; i++) {
-        text += `<li> <a href="#${toc[i]}">  ${toc[i]} </a></li>`
+      text += `* ${toc[i]}`
       }
-      text += "</ul>"
 
       return `
-        <section class="my-3">
-          <h2 class="text-dark bg-primary p-2 display-inline-block">Table of Contents</h2>
-          ${text}
-        </section>
-      `;
+  ## Table of Contents
+  ${text}`;
   }
 }
 
@@ -31,11 +27,8 @@ const generateLicense = license => {
   }
 
   return `
-    <section class="my-3">
-      <h2 class="text-dark bg-primary p-2 display-inline-block" id="Badges">License</h2>
-      <p>This App is covered under the following license: ${license}</p>
-    </section>
-  `;
+  ## License
+  This App is covered under the following license: ${license}`;
 };
 
 //function that returns a license badge if license was selected
@@ -82,59 +75,35 @@ const generateTests = tests => {
   }
 
   return `
-    <section class="my-3">
-      <h2 class="text-dark bg-primary p-2 display-inline-block" id="Tests">Tests</h2>
-      <p>${tests}</p>
-    </section>
-  `;
+  ## Tests
+  ${tests}`;
 };
 
 // export function to generate entire page
 module.exports = templateData => {
   // destructure page data by section
-  const { title, toc, description, installation, usage, license, badge, credits, tests, github, email } = templateData;
+  const { title, toc, description, installation, usage, license, credits, tests, github, email } = templateData;
 
   return `
-  <!DOCTYPE html>
-  <html lang="en">
+  # ${title}
+  ${generateLicenseBadge(license)}
+  ${generateToc(toc)}
+
+  ## Description
+  ${description}
+
+  ## Installation
+  ${installation}
+
+  ## Usage
+  ${usage}
+  ${generateLicense(license)}
+
+  ## Credits
+  ${credits}
+  ${generateTests(tests)}
+
+  ## Questions
+  For questions, contact me via email (${email}) or GitHub (https://github.com/${github})
   
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>README</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Public+Sans:300i,300,500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-  </head>
-  
-  <body>
-    <header>
-      <div class="container flex-row justify-space-between align-center py-3">
-        <h1 class="page-title text-secondary bg-dark py-2 px-3">${title}</h1>
-      </div>
-      <div>${badge}</div>
-    </header>
-    <main class="container my-5">
-      ${generateToc(toc)}     
-      <h2 class="text-dark bg-primary p-2 display-inline-block" id="Description">Description</h2>
-        <p>${description}</p>
-      <h2 class="text-dark bg-primary p-2 display-inline-block" id="Installation">Installation</h2>
-        <p>${installation}</p>
-      <h2 class="text-dark bg-primary p-2 display-inline-block" id="Usage">Usage</h2>
-        <p>${usage}</p>
-      ${generateLicense(license)}
-      <h2 class="text-dark bg-primary p-2 display-inline-block" id="Credits">Credits</h2>
-        <p>${credits}</p>
-      ${generateTests(tests)}
-      <h2 class="text-dark bg-primary p-2 display-inline-block" id="Credits">Questions</h2>
-        <p>If you have any questions, you can contact me:</p>
-        <ul>
-          <li> by email: ${email}</li> 
-          <li> via <a href="https://github.com/${github}">GitHub</a> </li>
-        </ul>
-    </main>
-  </body>
-  </html>
-  `;
-};
+  `
