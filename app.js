@@ -107,18 +107,6 @@ const promptUser = () => {
       message: 'Describe instructions on how to test the App? (Required)',
       when: ({confirmTests}) => confirmTests
     },
-    {
-      type: 'confirm',
-      name: 'confirmQuestions',
-      message: 'Do you have any questions?',
-      default: true
-    },
-    {
-      type: 'input',
-      name: 'questions',
-      message: 'List any unresolved questions? (Required)',
-      when: ({confirmQuestions}) => confirmQuestions
-    },
   ]);
 };
 
@@ -131,10 +119,6 @@ promptUser()
   })
   .then(writeFileResponse => {
     console.log(writeFileResponse);
-    return copyFile();
-  })
-  .then(copyFileResponse => {
-    console.log(copyFileResponse);
   })
   .catch(err => {
     console.log(err);

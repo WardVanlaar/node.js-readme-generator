@@ -11,13 +11,12 @@ const generateToc = toc => {
       let toclength = toc.length;
       let text = ''
       for (let i = 0; i < toclength; i++) {
-        text += `**${toc[i]}`
+      text += `* ${toc[i]}`
       }
 
       return `
-          #Table of Contents
-          ${text}
-      `;
+  ## Table of Contents
+  ${text}`;
   }
 }
 
@@ -28,9 +27,8 @@ const generateLicense = license => {
   }
 
   return `
-    #License
-    This App is covered under the following license: ${license}
-  `;
+  ## License
+  This App is covered under the following license: ${license}`;
 };
 
 //function that returns a license badge if license was selected
@@ -77,9 +75,8 @@ const generateTests = tests => {
   }
 
   return `
-      #Tests
-      ${tests}
-  `;
+  ## Tests
+  ${tests}`;
 };
 
 // export function to generate entire page
@@ -88,26 +85,23 @@ module.exports = templateData => {
   const { title, toc, description, installation, usage, license, credits, tests } = templateData;
 
   return `
-    #${title}
-    ${generateLicenseBadge(license)}
+  # ${title}
+  ${generateLicenseBadge(license)}
+  ${generateToc(toc)}
 
-    ${generateToc(toc)}
+  ## Description
+  ${description}
 
-    #Description
-    ${description}
+  ## Installation
+  ${installation}
 
-    #Installation
-    ${installation}
+  ## Usage
+  ${usage}
+  ${generateLicense(license)}
 
-    #Usage
-    ${usage}
-    
-    ${generateLicense(license)}
-
-    #Credits
-    ${credits}
-
-    ${generateTests(tests)}
+  ## Credits
+  ${credits}
+  ${generateTests(tests)}
   
   `
 
