@@ -1,4 +1,5 @@
 
+<<<<<<< HEAD
 # glgl
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
@@ -27,4 +28,7 @@ aa
 
 ## Questions
 For questions, contact me via email (aa) or find me on GitHub (https://github.com/aa)
+=======
+
+>>>>>>> b51d9a00c2cfddf38c61dcfdae4a690029d15056
   
