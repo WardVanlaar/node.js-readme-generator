@@ -1,6 +1,6 @@
 const inquirer = require('inquirer');
 const generatePage = require('./src/page-template');
-const { writeFile, copyFile } = require('./utils/generateMarkdown.js');
+const { writeFile } = require('./utils/generateMarkdown.js');
 
 const promptUser = () => {
   return inquirer.prompt([
@@ -154,8 +154,8 @@ promptUser()
   .then(readmeData => {
     return generatePage(readmeData);
   })
-  .then(pageHTML => {
-    return writeFile(pageHTML);
+  .then(pageMD => {
+    return writeFile(pageMD);
   })
   .then(writeFileResponse => {
     console.log(writeFileResponse);
