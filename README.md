@@ -1,5 +1,4 @@
-
-# README generator
+# README-generator
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 ## Table of Contents
 * [Description](#Description)
@@ -12,23 +11,23 @@
 
 
 ## Description
-This is an App to generate a README file.
+This App creates professional README files.
 
 Programming languages used:
 * Node.js
 
 
 ## Installation
-Clone this repo, install node.js, npm install from the terminal.
+Clone this repo, install node.js, and run npm install in the terminal.
 
 ## Usage
-This is an App that can be used to create a README.md for any of your projects or Apps.
+You can use it to create a README.md for any of your projects or Apps.
 
 ## License
 This App is covered under the following license: MIT
 
 ## Credits
-Ward Vanlaar 
+Ward Vanlaar
 
 ## Tests
 N/A
