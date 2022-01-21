@@ -1,32 +1,38 @@
 
-# fanpage
-[![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)
+# README-generator
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 ## Table of Contents
 * [Description](#Description)
+* [Installation](#Installation)
 * [Usage](#Usage)
 * [License](#License)
 * [Credits](#Credits)
+* [Tests](#Tests)
 * [Questions](#Questions)
 
 
 ## Description
-This was my first website when I did the pre-work to Coding Bootcamp.
+This App creates a professional README file.
+
+Programming languages used:
+* Node.js
+
 
 ## Installation
-N/A
+Clone this repo and install npm.
 
 ## Usage
-Just take a peek at my favorite band and don't mind the minimalistic approach...this was my first website after all.
+This App can be used to create a README.md for any of your projects. Once the README is created, copy/paste it in your GitHub repo.
 
 ## License
-This App is covered under the following license: The Unlicense
+This App is covered under the following license: MIT
 
 ## Credits
-Just me!
+Ward Vanlaar
 
 ## Tests
-N/A
+Type node app in the terminal.
 
 ## Questions
-For questions, contact me via email (wgvanlaar@gmail.com) or find me on GitHub (https://github.com/WardVanlaar)
+For questions, contact me via email (wardv@tirf.ca) or find me on GitHub (https://github.com/WardVanlaar)
   

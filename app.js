@@ -32,6 +32,19 @@ const promptUser = () => {
     },
     {
       type: 'confirm',
+      name: 'confirmLanguage',
+      message: 'Would you like to list the programming languages used?',
+      default: true
+    },
+    {
+      type: 'checkbox',
+      name: 'languages',
+      message: 'What programming languages did you use? (Check all that apply)',
+      choices: ['HTML', 'CSS', 'Javascript', 'JQuery', 'Node.js'],
+      when: ({confirmLanguage}) => confirmLanguage
+    },
+    {
+      type: 'confirm',
       name: 'confirmToc',
       message: 'Would you like to enter a table of contents?',
       default: true
