@@ -19,6 +19,26 @@ ${text}`;
   }
 }
 
+//function that returns list of programming languages used
+const generateLanguages = languages => {
+  if (!languages) {
+
+    return '';
+
+  } else {
+      languages.map(languages => languages).join(',');
+      let languageslength = languages.length;
+      let text = ''
+      for (let i = 0; i < languageslength; i++) {
+      text +=`* ${languages[i]}\n`
+      }
+
+      return `
+Programming languages used:
+${text}`;
+  }
+}
+
 //function that returns a license if one was selected
 const generateLicense = license => {
   if (!license) {
@@ -77,7 +97,7 @@ ${tests}`;
 // export function to generate entire page
 module.exports = templateData => {
   // destructure page data by section
-  const { title, toc, description, installation, usage, license, credits, tests, github, email } = templateData;
+  const { title, toc, description, languages, installation, usage, license, credits, tests, github, email } = templateData;
 
   return `
 # ${title}
@@ -86,6 +106,7 @@ ${generateToc(toc)}
 
 ## Description
 ${description}
+${generateLanguages(languages)}
 
 ## Installation
 ${installation}
