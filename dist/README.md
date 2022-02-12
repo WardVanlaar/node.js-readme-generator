@@ -1,30 +1,42 @@
 
-# glgl
+# express.js-note-taker
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+## Table of Contents
+* [Description](#Description)
+* [Installation](#Installation)
+* [Usage](#Usage)
+* [License](#License)
+* [Credits](#Credits)
+* [Tests](#Tests)
+* [Questions](#Questions)
 
 
 ## Description
-glgl
+With this App you can create and save notes.
 
 Programming languages used:
+* HTML
+* CSS
+* Javascript
+* JQuery
 * Node.js
 
 
 ## Installation
-aa
+Clone this repo, install node.js, and run npm install from the terminal.
 
 ## Usage
-aa
+With this App you can create a note with a title and a text message. Notes can be saved and deleted. Saved notes can be displayed.
 
 ## License
 This App is covered under the following license: MIT
 
 ## Credits
-aa
+Ward Vanlaar; some coded adapted from https://github.com/nicolewallace09/note-taker
 
 ## Tests
-aa
+Type npm test in the terminal to run two tests in __tests__/notes.test.js
 
 ## Questions
-For questions, contact me via email (aa) or find me on GitHub (https://github.com/aa)
+For questions, contact me via email (wardv@tirf.ca) or find me on GitHub (https://github.com/WardVanlaar)
   
