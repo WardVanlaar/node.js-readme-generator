@@ -1,5 +1,5 @@
 
-# express.js-note-taker
+# myAwesomeEmployees-tracker
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 ## Table of Contents
 * [Description](#Description)
@@ -12,31 +12,28 @@
 
 
 ## Description
-With this App you can create and save notes.
+With this App you can track employees in your company. Things such their role, salary and department can be viewed and updated.
 
 Programming languages used:
-* HTML
-* CSS
-* Javascript
-* JQuery
 * Node.js
+* MySQL
 
 
 ## Installation
-Clone this repo, install node.js, and run npm install from the terminal.
+Clone this repo, install node.js, and run npm install in the terminal.
 
 ## Usage
-With this App you can create a note with a title and a text message. Notes can be saved and deleted. Saved notes can be displayed.
+The App can be used to track employees in your company.
 
 ## License
 This App is covered under the following license: MIT
 
 ## Credits
-Ward Vanlaar; some coded adapted from https://github.com/nicolewallace09/note-taker
+Ward Vanlaar
 
 ## Tests
-Type npm test in the terminal to run two tests in __tests__/notes.test.js
+N/A
 
 ## Questions
-For questions, contact me via email (wardv@tirf.ca) or find me on GitHub (https://github.com/WardVanlaar)
+For questions, contact me via email (wgvanlaar@gmail.com) or find me on GitHub (https://github.com/WardVanlaar)
   
