@@ -39,8 +39,8 @@ const promptUser = () => {
     {
       type: 'checkbox',
       name: 'languages',
-      message: 'What programming languages/technologies did you use? (Check all that apply)',
-      choices: ['HTML', 'Handlebars', 'CSS', 'Javascript', 'JQuery', 'Node.js', 'MySQL', 'React'],
+      message: 'What programming languages did you use? (Check all that apply)',
+      choices: ['HTML', 'Handlebars', 'CSS', 'Javascript', 'JQuery', 'Node.js', 'MySQL', 'JSX'],
       when: ({confirmLanguage}) => confirmLanguage
     },
     {
